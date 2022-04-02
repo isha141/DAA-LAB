@@ -3,13 +3,14 @@
 // of comparisons for each input case. (Time Complexity = O(nlogn), where n is the size of input).
 #include<bits/stdc++.h>
 using namespace std; 
-int binary_search(int *a,int n,int key)
+int binary_search(int *a,int n,int key,int &count)
 {
     int l=0;
     int h=n-1;
     while(l<=h)
     {
-        int mid=(l+h)/2;\
+        int mid=(l+h)/2;
+        count++;
         if(a[mid]==key)
         return mid;
         else if(a[mid]<key)
@@ -30,9 +31,10 @@ int main()
     cout<<"Enter the key which you want to search "<<endl;
     int key;
     cin>>key;
-    if(binary_search(a,n,key)!=-1)
+    if(binary_search(a,n,key,count)!=-1)
      cout<<"Element is present  "<<endl;
     else
-    cout<<"Element is not present "<<endl;
+    cout<<"Element is not present "<<endl; 
+    cout<<"Total number of comaprison are "<<count<<endl;
     return 0;
 }
