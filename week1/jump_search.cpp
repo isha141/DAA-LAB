@@ -35,8 +35,10 @@ int jump_search(int *a,int n,int key)
     while(a[m]<=key && m<n)
     {
         i=m;
-        m=m+sqrt(n);
-    }
+        m=m+sqrt(n); 
+        if(m > n-1)
+            return -1;
+    } 
     return linear_search(a,i,m,key);
 }
 int main()
