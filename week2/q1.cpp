@@ -45,10 +45,27 @@ int main()
     if(linear_search(a,n,key)!=-1)
     {
         cout<<"Key is found "<<endl;
-    }
+    } 
     else
-    cout<<"Key si not found "<<endl; 
-    }
+    cout<<"Key is not found "<<endl; 
+    } 
+     sort(a,n);
+     for(int i=0;i<n;i++)
+         {
+            for(int j=0;j<n-1;j++)
+            {
+                     if(a[j]<a[j+1])
+                          swap(a[j],a[j+1]);
+            }
+         } 
+      int count=0;
+         for(int i=0;i<n;i++)
+         {
+               if(a[i]==a[i+1])
+                        count++;
+                  
+         }
+      cout<<"Number of occurences of dupliate key are "<<count<<endl;
     return 0;
 }
  
