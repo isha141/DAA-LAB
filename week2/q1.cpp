@@ -1,4 +1,4 @@
-// Given a sorted array of positive integers containing few duplicate elements, design an algorithm
+ // Given a sorted array of positive integers containing few duplicate elements, design an algorithm
 // and implement it using a program to find whether the given key element is present in the array
 // or not. If present, then also find the number of copies of given key. (Time Complexity = O(log n))
 // Input format:
@@ -42,30 +42,31 @@ int main()
     int key;
     cout<<"Enter the key "<<endl;
     cin>>key;
-    if(linear_search(a,n,key)!=-1)
+    int temp=linear_search(a,n,key);
+    if(temp!=-1)
     {
         cout<<"Key is found "<<endl;
     } 
     else
     cout<<"Key is not found "<<endl; 
-    } 
-     sort(a,n);
-     for(int i=0;i<n;i++)
-         {
-            for(int j=0;j<n-1;j++)
-            {
-                     if(a[j]<a[j+1])
-                          swap(a[j],a[j+1]);
-            }
+    int dup=a[temp];
+    for(int i=0;i<n;i++)
+    {
+      for(int j=0;j<n;j++)
+     {
+        if(a[j]>a[j+1])
+          swap(a[j],a[j+1]);
+    }
          } 
       int count=0;
          for(int i=0;i<n;i++)
          {
-               if(a[i]==a[i+1])
+               if(a[i]==dup)
                         count++;
                   
          }
       cout<<"Number of occurences of dupliate key are "<<count<<endl;
+    }
     return 0;
 }
- 
+
